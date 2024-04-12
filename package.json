@@ -1,0 +1,19 @@
+{
+  "name": "ltra3694-tracker",
+  "version": "1.0.0",
+  "description": "A weight-lifting tracking app aimed to help track progress, intesnsity and bodyweight updates to a user. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "LTRA3694-tracker"
+  },
+  "keywords": [
+    "jest"
+  ],
+  "author": "Louvian Tran",
+  "license": "ISC"
+}
