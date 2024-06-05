@@ -29,7 +29,7 @@ dd
 ___
 
 ## Constructing HTML
-dd
+-CSS Reset: To make sure that there are no inconsistencies across different browsers, I used a "Reset CSS" by _ (https://meyerweb.com/eric/tools/css/reset/) to work on a clean slate.
 
 ## Constructing CSS
 - Mention creating variables for e.g. breakpoints + colours, font sizing

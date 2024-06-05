@@ -1,0 +1,26 @@
+/* ---------- ⋆｡°✩ MOBILE LAYOUT ✩°｡⋆ --------- */
+
+/* ---------- ⋆｡°✩ DESKTOP LAYOUT ✩°｡⋆ --------- */
+/* BREAKPOINT */
+
+/* CSS GRID */
+.container {  display: grid;
+    grid-template-columns: 1.7fr 1.2fr;
+    grid-template-rows: 1.5fr 0.5fr 2.1fr;
+    gap: 2% 1.5%;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "exercise-logger protein-intake"
+      "exercise-logger bodyweight-tracker"
+      "exercise-program-checklist bodyweight-tracker";
+    width: 100%;
+    height: 100%;
+  }
+  
+  .exercise-logger { grid-area: exercise-logger; }
+  
+  .exercise-program-checklist { grid-area: exercise-program-checklist; }
+  
+  .protein-intake { grid-area: protein-intake; }
+  
+  .bodyweight-tracker { grid-area: bodyweight-tracker; }

@@ -10,77 +10,208 @@
 
 </head>
 <body>
-    <h1>hello</h1>
-
     <!-- Creating the different "widgets" -->
     <div class="container">
         <!---------- ⋆｡°✩ WIDGET 1: Exercise logger ✩°｡⋆ ---------->
-        <div class="exercise-logger">
+        <div class="exercise-logger" class="widget">
             <!-- HEADER: Exercise loggger -->
+            <h1 class="widget-header">Exercise logger</h1>
 
-            <!-- DROPDOWN MENU: Body part -->
+            <!-- Grouping dropdown menus together -->
+            <section>
+                <!-- DROPDOWN MENU: Body part -->
+                <label for="body-part">Body part:</label>
+                <select name="body-part" id="body-part-dropdown">
+                    <option value="all">All</option>
+                    <option value="upper">Upper body</option>
+                    <option value="lower">Lower body</option>
+                    <option value="core">Core</option>
+                </select>
+                <!-- DROPDOWN MENU: Exercise (cannot be selected before previous DD has been interacted with) -->
+                <label for="exercise-select">Exercise:</label>
+                <select name="exercise-select" id="exercise-select-dropdown">
+                    <option value="option-one">option</option>
+                    <option value="option-two">option</option>
+                    <option value="option-three">option</option>
+                    <option value="option-four">option</option>
+                    <option value="option-five">option</option>
+                    <option value="option-six">option</option>
+                    <option value="option-seven">option</option>
+                    <option value="option-eight">option</option>
+                    <option value="option-nine">option</option>
+                    <option value="option-ten">option</option>
+                    <option value="option-eleven">option</option>
+                </select>
+            </section>
 
-            <!-- DROPDOWN MENU: Exercise (cannot be selected before previous DD has been interacted with) -->
+            <section id="log-compare">
+                <figure>
+                <!-- Last logs -->
+                <p class="caption">Last log:</p>
+                <ul class="weight-set-reps">
+                    <li>"weight"</li>
+                    <li>"sets"</li>
+                    <li>"reps"</li>
+                </ul>
+                </figure>
 
-            <!-- Small header: last logs -->
+                <!-- Form: Current logs -->
+                <ul class="weight-set-reps">
+                    <li>"weight"</li>
+                    <li>"sets"</li>
+                    <li>"reps"</li>
+                </ul>
 
-            <!-- Form: Current logs -->
-
+            </section>
             <!-- BUTTON: Record exercise -->
+            <button class="cta-button">Update intake</button>
         </div>
 
         <!---------- ⋆｡°✩ WIDGET 2: Exercise Program Checklist ✩°｡⋆ ---------->
-        <div class="exercise-program-checklist">
+        <div class="exercise-program-checklist" class="widget">
             <!-- HEADER: Exercise program tracker -->
+            <h1 class="widget-header">Exercise program tracker</h1>
 
-            <!-- Make 4 seperate sections for each checklist list -->
-            <!-- SECTION: Day 1 -->
-                <!-- TITLE: Day 1 -->
-                <!-- CHECKLIST: 5 inputs -->
+            <main id="checklist-container">
+                <!-- Make 4 seperate sections for each checklist list -->
+                <!-- SECTION: Day 1 -->
+                 <article class="day-list">
+                    <!-- TITLE: Day 1 -->
+                    <h2 class="day-title">Day 1</h2>
+                    <!-- CHECKLIST: 5 inputs -->
 
-            <!-- SECTION: Day 2 -->
-                <!-- TITLE: Day 2 -->
-                <!-- CHECKLIST: 5 inputs -->
+                    <form class="day-checklist" id="day-one-checklist">
+                        <input type="checkbox" id="bench-press" name="benchPress">
+                        <label for="bench-press">"Bench Press"</label>
+                        
+                        <input type="checkbox" id="shoulder-press" value="shoulder-press">
+                        <label for="shoulder-press">"Shoulder Press"</label>
 
-            <!-- SECTION: Day 3 -->
-                <!-- TITLE: Day 3 -->
-                <!-- CHECKLIST: 5 inputs -->
+                        <input type="checkbox" id="face-pulls" value="face-pulls">
+                        <label for="face-pulls">"Face Pulls"</label>
 
-            <!-- SECTION: Day 4 -->
-                <!-- TITLE: Day 4 -->
-                <!-- CHECKLIST: make 5 inputs -->
+                        <input type="checkbox" id="lat-raises" value="lat-raises">
+                        <label for="lat-raises">"Lat Raises"</label>
 
-            <!-- BUTTON: Reset all --> 
+                        <input type="checkbox" id="skull-crushers" value="skull-crushers">
+                        <label for="skull-crushers">"Skull Crushers"</label>
+                    </form>
+                 </article>
+            
+                <!-- SECTION: Day 2 -->
+                 <article class="day-list">
+                    <!-- TITLE: Day 2 -->
+                    <h2 class="day-title">Day 2</h2>
+                    <!-- CHECKLIST: 5 inputs -->
+                    <form class="day-checklist" id="day-two-checklist">
+                        <input type="checkbox" id="squat" value="squat">
+                        <label for="squat">"Squat"</label>
+                        
+                        <input type="checkbox" id="step-ups" value="step-ups">
+                        <label for="step-ups">"Step Ups"</label>
+                        
+                        <input type="checkbox" id="rdl" value="rdl">
+                        <label for="rdl">"RDL"</label>
+
+                        <input type="checkbox" id="ham-curls" value="ham-curls">
+                        <label for="ham-curls">"Ham Curls"</label>
+
+                        <input type="checkbox" id="adductors" value="adductors">
+                        <label for="adductors">"Adductors"</label>
+                    </form>
+                 </article>
+
+                <!-- SECTION: Day 3 -->
+                <article class="day-list">
+                    <!-- TITLE: Day 3 -->
+                    <h2 class="day-title">Day 3</h2>
+                    <!-- CHECKLIST: 5 inputs -->
+                    <form class="day-checklist" id="day-three-checklist">
+                        <input type="checkbox" id="pull-ups" value="pull-ups">
+                        <label for="pull-ups">"Pull ups"</label>
+                        
+                        <input type="checkbox" id="lat-pulldown" value="lat-pulldown">
+                        <label for="lat-pulldown">"Lat Pulldown"</label>
+
+                        <input type="checkbox" id="seated-row" value="seated-row">
+                        <label for="seated-row">"Seated Row"</label>
+                        
+                        <input type="checkbox" id="bicep-curl" value="bicep-curl">
+                        <label for="bicep-curl">"Bicep Curl"</label>
+                        
+                        <input type="checkbox" id="hammer-curl" value="hammer-curl">
+                        <label for="hammer-curl">"Hammer Curl"</label>
+                    </form>
+                 </article>
+
+                <!-- SECTION: Day 4 -->
+                <article class="day-list">
+                    <!-- TITLE: Day 4 -->
+                    <h2 class="day-title">Day 4</h2>
+                    <!-- CHECKLIST: 5 inputs -->
+                    <form class="day-checklist" id="day-four-checklist">
+                        <input type="checkbox" id="leg-press" value="leg-press">
+                        <label for="leg-press">"Leg Press"</label>
+                        
+                        <input type="checkbox" id="bss" value="bss">
+                        <label for="bss">"BSS"</label>
+
+                        <input type="checkbox" id="quad-extension" value="quad-extension">
+                        <label for="quad-extension">"Quad Extension"</label>
+                        
+                        <input type="checkbox" id="calf-raises" value="calf-raises">
+                        <label for="calf-raises">"Calf Raises"</label>
+                        
+                        <input type="checkbox" id="leg-raises" value="leg-raises">
+                        <label for="leg-raises">"Lef Raises"</label>
+                    </form>
+                 </article>
+    
+                <!-- BUTTON: Reset all --> 
+                <button id="reset" class="secondary-button">Reset all</button>
+                </main>
         </div>
 
         <!---------- ⋆｡°✩ WIDGET 3: Protein Intake ✩°｡⋆ ---------->
-        <div class="protein-intake">
+        <div class="protein-intake" class="widget">
             <!-- HEADER: Protein intake -->
+            <h1 class="widget-header">Protein intake</h1>
+
             <!-- SECTION: Current intake display -->
                 <!-- TEXT: Current intake -->
                 <!-- TEXT: Intake goal -->
             <!-- BUTTON: Update intake -->
-            <!-- BUTTON: Change goal -->
+            <button class="cta-button">Update intake</button>
 
-            <!-- when BUTTON: UPDATE INTAKE is pressed -->
+            <!-- BUTTON: Change goal -->
+            <button class="secondary-button">Change goal</button>
+
+            <!-- SCREEN CHANGE: when "BUTTON: Update intake" is pressed -->
             <!-- SECTION: Update Intake -->
 
-            <!-- when BUTTON: CHANGE GOAL is pressed -->
+            <!-- SCREEN CHANGE: when "BUTTON: Change goal" is pressed -->
             <!-- SECTION: Change goal -->
 
         </div>
 
          <!---------- ⋆｡°✩ WIDGET 4: Bodyweight Tracker ✩°｡⋆ ---------->
-        <div class="bodyweight-tracker">
+        <div class="bodyweight-tracker" class="widget">
             <!-- HEADER: Bodyweight Tracker -->
+            <h1 class="widget-header">Bodyweight Tracker</h1>
             <!-- SECTION: Current adverage -->
                 <!-- SMALL HEADER: Current Average -->
                 <!-- TEXT: mean weight -->
             <!-- BUTTON: Log weight -->
+            <button class="cta-button">Log weight</button>
             <!-- With the help of TailwindCSS, make a graph -->
             <!-- Section: Graph -->
 
             <!-- when BUTTON: LOG WEIGHT is pressed -->
+            <!-- SECTION: Update Intake -->
+                <!-- BUTTON: Track -->
+                <button id="track-button" class="secondary-button">Track</button>
+                <!-- BUTTON: Cancel -->
+                <button class="cancel-button" class="secondary-button">Cancel</button>
 
         </div>
 
