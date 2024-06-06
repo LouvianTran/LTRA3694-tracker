@@ -1,151 +1,139 @@
 
-export const ExerciseLogger=()=> {
-    //Create widget + Insert MUI here
-    return(<>hello</>)
+// export const ExerciseLogger=()=> {
+//     //Create widget + Insert MUI here
+//     return(<>hello</>)
 
-}
+// }
 
-// put functionalities here
-// Number input MUI
-import * as React from 'react';
-import { Unstable_NumberInput as BaseNumberInput } from '@mui/base/Unstable_NumberInput';
-import { styled } from '@mui/system';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
+// // put functionalities here
+// // Number input MUI
 
-const NumberInput = React.forwardRef(function CustomNumberInput(props, ref) {
-  return (
-    <BaseNumberInput
-      slots={{
-        root: StyledInputRoot,
-        input: StyledInput,
-        incrementButton: StyledButton,
-        decrementButton: StyledButton,
-      }}
-      slotProps={{
-        incrementButton: {
-          children: <AddIcon fontSize="small" />,
-          className: 'increment',
-        },
-        decrementButton: {
-          children: <RemoveIcon fontSize="small" />,
-        },
-      }}
-      {...props}
-      ref={ref}
-    />
-  );
-});
+import React, { useState } from 'react';
 
-export default function QuantityInput() {
-  return <NumberInput aria-label="Quantity Input" min={1} max={99} />;
-}
+// Importing styles from styleSheet.js
+import { palette } from './styleSheet';
+import { typography } from './styleSheet';
+import { wideBox } from './styleSheet';
 
-const blue = {
-  100: '#daecff',
-  200: '#b6daff',
-  300: '#66b2ff',
-  400: '#3399ff',
-  500: '#007fff',
-  600: '#0072e5',
-  700: '#0059B2',
-  800: '#004c99',
-};
+import {
+  Box,
+  Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  TextField,
+  Button,
+  Grid
+} from '@mui/material';
 
-const grey = {
-  50: '#F3F6F9',
-  100: '#E5EAF2',
-  200: '#DAE2ED',
-  300: '#C7D0DD',
-  400: '#B0B8C4',
-  500: '#9DA8B7',
-  600: '#6B7A90',
-  700: '#434D5B',
-  800: '#303740',
-  900: '#1C2025',
-};
 
-const StyledInputRoot = styled('div')(
-  ({ theme }) => `
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 400;
-  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[500]};
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-`,
-);
+const ExerciseLogger = () => {
+  //define variables (when there is no value, changes to value in (), but with user imput, changes to users input)
+  const [bodyPart, setBodyPart] = useState('');
+  const [exercise, setExercise] = useState('');
+  const [weight, setWeight] = useState('-');
+  const [sets, setSets] = useState('-');
+  const [reps, setReps] = useState('');
 
-const StyledInput = styled('input')(
-  ({ theme }) => `
-  font-size: 0.875rem;
-  font-family: inherit;
-  font-weight: 400;
-  line-height: 1.375;
-  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-  border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-  box-shadow: 0px 2px 4px ${
-    theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'
+  const handleRecordExercise = () => {
+    // Logic to record the exercise
+    console.log(`Recorded: ${bodyPart}, ${exercise}, ${weight}kg, ${sets} sets, ${reps} reps`);
   };
-  border-radius: 8px;
-  margin: 0 8px;
-  padding: 10px 12px;
-  outline: 0;
-  min-width: 0;
-  width: 4rem;
-  text-align: center;
 
-  &:hover {
-    border-color: ${blue[400]};
-  }
 
-  &:focus {
-    border-color: ${blue[400]};
-    box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[700] : blue[200]};
-  }
+return (
+  <Box sx={wideBox}>
+    <Typography sx={typography.h1} gutterBottom>Exercise logger</Typography>
+    {/* MaterialUI Form: select to specify dropdown */}
+    <FormControl fullWidth margin="normal">
+      {/* Body part dropdown */}
+      <InputLabel id="body-part-label" sx={typography.caption}>Select one</InputLabel>
+      <Select
+        labelId="body-part-label"
+        value={bodyPart}
+        // Action, use e to define input
+        onChange={(e) => setBodyPart(e.target.value)}
+        label="Body part"
+      >
+        <MenuItem value="arms">Arms</MenuItem>
+        <MenuItem value="legs">Legs</MenuItem>
+        <MenuItem value="back">Back</MenuItem>
+        <MenuItem value="chest">Chest</MenuItem>
+      </Select>
+    </FormControl>
+    <FormControl fullWidth margin="normal">
+      <InputLabel id="exercise-label" sx={typography.caption} >Exercise</InputLabel>
+      <Select
+        labelId="exercise-label"
+        value={exercise}
+        onChange={(e) => setExercise(e.target.value)}
+        label="Exercise"
+      >
+        <MenuItem value="bicep-curl">Bicep Curl</MenuItem>
+        <MenuItem value="squat">Squat</MenuItem>
+        <MenuItem value="deadlift">Deadlift</MenuItem>
+        <MenuItem value="bench-press">Bench Press</MenuItem>
+      </Select>
+    </FormControl>
 
-  &:focus-visible {
-    outline: 0;
-  }
-`,
-);
+{/* Edit connect with consts set earlier (33-37). Show the last logs */}
+    <Box sx={{ margin: '16px 0' }}>
+        <Typography sx={typography.caption}> Last log:</Typography>
+        <Box sx={{display:'flex', width: "100%",justifyContent: 'space-evenly', padding: "0.5"}}>
+          <Typography sx={typography.p}>{`Weight: ${weight} kg`}</Typography>
+          <Typography sx={typography.p}>{`Sets: ${sets}`}</Typography>
+          <Typography sx={typography.p}>{`Reps: ${reps}`}</Typography>
+        </Box>
+    </Box>
 
-const StyledButton = styled('button')(
-  ({ theme }) => `
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.875rem;
-  box-sizing: border-box;
-  line-height: 1.5;
-  border: 1px solid;
-  border-radius: 999px;
-  border-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
-  background: ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
-  color: ${theme.palette.mode === 'dark' ? grey[200] : grey[900]};
-  width: 32px;
-  height: 32px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 120ms;
+      {/* Log weight = weight input */}
+      <Grid container spacing={2} alignItems="center">
+        <Grid item xs={4}>
+          <Typography variant="body1">Weight:</Typography>
+        </Grid>
+        <Grid item xs={8}>
+          <TextField
+            fullWidth
+            type="number"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            InputProps={{
+              endAdornment: <Typography>kg</Typography>,
+            }}
+          />
+        </Grid>
+      </Grid>
+      
+      <TextField
+        fullWidth
+        type="number"
+        label="Sets"
+        value={sets}
+        onChange={(e) => setSets(e.target.value)}
+        margin="normal"
+      />
 
-  &:hover {
-    cursor: pointer;
-    background: ${theme.palette.mode === 'dark' ? blue[700] : blue[500]};
-    border-color: ${theme.palette.mode === 'dark' ? blue[500] : blue[400]};
-    color: ${grey[50]};
-  }
+      <TextField
+        fullWidth
+        type="number"
+        label="Reps"
+        value={reps}
+        onChange={(e) => setReps(e.target.value)}
+        margin="normal"
+      />
+      <Button
+        fullWidth
+        variant="contained"
+        color="primary"
+        onClick={handleRecordExercise}
+        disabled={!bodyPart || !exercise || !weight || !sets || !reps}
+        sx={{ marginTop: 2, backgroundColor: palette.primary.main, "&:hover": palette.primary.hover}}
+      >
+        Record exercise
+      </Button>
+    </Box>
+  );
+};
 
-  &:focus-visible {
-    outline: 0;
-  }
-
-  &.increment {
-    order: 1;
-  }
-`,
-);
+export default ExerciseLogger;
