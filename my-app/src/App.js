@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import BasicTable from './component/example';
+// import BasicTable from './component/example';
+import { ExerciseLogger } from './component/exerciseLogger';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           Learn React
         </a>
       </header>
-      <BasicTable/>
+      {/* <BasicTable/> */}
+      <ExerciseLogger></ExerciseLogger>
     </div>
   );
 }
