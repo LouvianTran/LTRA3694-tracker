@@ -5,15 +5,18 @@
 - Breakpoint + reasoning
 
 ___
+## Installing MUI + React
+To make the coding experince more simple design elements more fluid to one another, I employed the help of installing React.js, as well as MUI to the code. I then moved on to customising the default values and themens to fit my Figma prototype. This was done in the root ```src/index.js``` file. I created a theme const and edited the properties of the original theme I wanted to adjust.
 
 ## Design system:
 ### Typography (font + sizing, account for different screen sizes)
+For the choice of font, I decided to stick with the default MUI theme, the font was already accurate the the visual portray of the website I had originally had in mind. I chose to edit the sizing of the elements, however, as I felt that the given hierachy was more suited to longer websites that needed to utilise multiple different headers under headers, which this "widget function" system did not require. As such, I edited the text sizes I will be utilising below:
 
 | First Header  | Mobile (<_px) | Desktop (>_px)| 
 | ------------- | ------------- | ------------- |
-|    Heading    | Content Cell  | Content Cell  |
-|   Paragraph   | Content Cell  | Content Cell  |
-|    Caption    | Content Cell  | Content Cell  |
+|    Heading    | 1.5 rem  | 2 rem  |
+|   Paragraph   | 1 rem  | 1.5 rem  |
+|    Caption    | 0.5 rem  | 1 rem  |
 
 ### Colour palette (colour palette, choices + does it meet accessibility guidelines)
 dd
