@@ -87,7 +87,8 @@ return (
         </Box>
     </Box>
 
-      {/* Log weight = weight input */}
+      {/* Create the 3 input fields for weights, sets, reps */}
+      {/* Log weight = weight input. Use grid to help with formatting writing next to the input field */}
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={4}>
           <Typography variant="body1">Weight:</Typography>
@@ -110,6 +111,7 @@ return (
         type="number"
         label="Sets"
         value={sets}
+        // When user inputs a value, set the value of "set_" to be the users input value. Do the same for the other forms
         onChange={(e) => setSets(e.target.value)}
         margin="normal"
       />
