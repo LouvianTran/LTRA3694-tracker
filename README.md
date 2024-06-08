@@ -1,36 +1,56 @@
 # LTRA3694-tracker
 ## Design approach:
 ### Concept + Rationale 
-(of purpose, + app layout e.g. widget similar to apple)
+The concept of this website is to provide users, specifically individuals that were interested in their physical activity and health, a all-in-one way to view and track their progress, see imporvement, and adjust goals to meet their personal needs. This website included four main components (which could be viewed as "widgets") that users would be able to inteact with to allow the system produce an output, wether this output involved calculations, or storing data.
+
+### Features
+The features are all found stored within the four main widgets, their purposes and aims are listed below:
+- **Exercise Logger -** This widget rememebers data the user previously inputted, and allows users to add new data in to compare and track their progress.
+- **Protein intake -** This component adds together data user inputs and also allows users to change the overall goal. The app resets the inputted intake every midnight
+- **Bodyweight tracker -** Bodyweight gets adveraged throughout a weeks worth of data, and also visualises and tracks bodyweight with a line graph
+- **Exercise program tracker -** Simple checkbox that lets users see what they have and have not completed. Can be reset with a button
+
+## Version control
+This project uses github for tracking and managing changes made across multiple devices. Please see the github repositry here: https://github.com/LouvianTran/LTRA3694-tracker
 
 ### Design: Screen approach
 For this website, I wanted to go with a mobile-first approach, as opposed to a desktop-first. This was beacuase this app was designed to be used within many different settings e.g. gym, at a scale, on the go, etc, and it would be more ebenficial to build the site catered to a on-the-go device.
 
-### Breakpoint
-When first deciding the breakpoint from mobile to desktop screens, I was going to use a 768px (a tablet screen size) as it was the screen size in between both and did not foce desktop layouts to be reserved for >1024, however, later on when React is installed, I end up sticking to one of their premade breakpoints. The breakpoint i chose to use was md, which shared the same px (≥768px)
-___
+### Breakpoints
+When first deciding the breakpoint from mobile to desktop screens, I was going to use a 768px (a tablet screen size) as it was the screen size in between both and did not foce desktop layouts to be reserved for >1024, however, later on when React is installed, I end up sticking to one of their premade breakpoints. The breakpoint I chose to use was "md", which shared the same px (≥768px)
+
 ## Design system:
 ### Typography (font + sizing, account for different screen sizes)
 For the choice of font, I decided to stick with the default MUI theme, the font was already accurate the the visual portray of the website I had originally had in mind. I chose to edit the sizing of the elements, however, as I felt that the given hierachy was more suited to longer websites that needed to utilise multiple different headers under headers, which this "widget function" system did not require. As such, I edited the text sizes I will be utilising below:
 
-| First Header  | Mobile ( MUI "xs") | Desktop (MUI "md")| 
-| ------------- | ------------- | ------------- |
-|    Heading    | 1.5 rem  | 2 rem  |
-|   Paragraph   | 1 rem  | 1.5 rem  |
-|    Caption    | 0.5 rem  | 1 rem  |
+| Text hierachy | Mobile ( MUI "xs") | Desktop (MUI "md")| 
+| ------------- | -------------      | -------------     |
+|    Heading    | 1.5 rem            | 2 rem             |
+|   Paragraph   | 1 rem              | 1.5 rem           |
+|    Caption    | 0.5 rem            | 1 rem             |
 
-### Colour palette (colour palette, choices + does it meet accessibility guidelines)
-For my colour palette, I chose to go two-toned 
+### Colour palette
+For my colour palette, I chose to go monotone sage palette. This palette was tested against a colour contrast accessibility checker (Clapperton, A., 2023), which determined that the color pairings I was aiming to use all passed AA regulations (>7:1 contrast ratio).
 
-## High-fidelity
-- Talk about any changes from mid --> high
+| Text type  | Color # | Color preview            |
+| ---------- | ------- | ------------------------ |
+| Text       | #0C0C08 | ![alt text](image-6.png) |
+| Background | #F8F8F5 | ![alt text](image-5.png) |
+| Primary    | #989F6F | ![alt text](image-4.png) |
+| Secondary  | #87AFA8 | ![alt text](image-3.png) |
+| Accent     | #E4EBE5 | ![alt text](image-2.png) |
 
-(for features, talk about how similar / any changes you had to do from your wireframe to coding, was it ease? Using tool? if tool, reference them)
+### High-fidelity
+Before ccoding, I created a high fidelity image of how I wanted the website to come together, given the proposed design system. This was done in Figma.
 
-___
-Initial website constructions (pre react.js / Material UI)
+Additioonal adjustments made from the previous mid-fidelity to high-fidelity includes: changing secondary buttons to give them a noticable difference to non-clickable/inactive buttons
 
-## Constructing HTML
+![alt text](image-8.png)
+![alt text](image-7.png)
+
+## Initial website constructions (pre react.js / Material UI)
+
+### Constructing HTML
 Within the HTML, I started laying out the basic structures and seperating the different widgets with sections. Each element either had a class, id, or both Different inputs I pasted in included:
 
 - Buttons (CTA, secondary, inactive)
@@ -77,13 +97,13 @@ Within the HTML, I started laying out the basic structures and seperating the di
 </select>
 ```
 
-## Constructing CSS
+### Constructing CSS
 - Mention creating variables for e.g. breakpoints + colours, font sizing
 - Responsive layout
 
-Next, for creating a grid layout similar to what I had created as a mid-fidelity desktop screens, I utilised an online CSS grid generator (https://grid.layoutit.com/). From here, i made the grid look as close to the wireframe as possible:
+Next, for creating a grid layout similar to what I had created as a mid-fidelity desktop screens, I utilised an online CSS grid generator (Leniolabs, 2024). From here, i made the grid look as close to the wireframe as possible:
 ![alt text](image-1.png)
-Sine i planned to have my mobile layout have the widgets stack on top of one another, this screen size did not need to use a grid. I then imported this code into style.css.
+Since i planned to have my mobile layout have the widgets stack on top of one another, this screen size did not need to use a grid. I then imported this code into style.css.
 
 ``` CSS
 .container {  display: grid;
@@ -114,7 +134,8 @@ To make the coding experince more simple design elements more fluid to one anoth
 ## Using React:
 Using the react library, I restarted the layout of creating widgets in seperate js files, then planned on importing all of these seperate js files into the main ```App.js``` file.
 ___
-## Difficulties during coding: npm installation
+## Difficulties during coding: 
+### npm installation
 While working on this project, I had run into an issue starting my server up through npm, nameably, the terminal continually failed to recognise npm as a command in the terminal, and this, I would not be able to host a server. 
 
 ![alt text](image.png)
@@ -125,6 +146,9 @@ A solution that was recommended to me by individuals familiar with using VSCode 
 1. ``` export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" ```
 2. ```[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"```
 3. ```npm install```
+
+### React.js learning curve
+The biggest struggle of this project was adjusting to the syntax and layout that the React.js framework provided. Although React.js helps to simplify and condense steps of front-end design, I felt that I was unable to understand and efficiently utilise this new system given the timeframe I was able to dedicate to this project. Due to this, my progress was slower than constructing the website than without.
 ___
 
 ## Use of AI
@@ -157,7 +181,11 @@ Here’s how you can achieve this using the sx prop:
 ___
 
 ## References
-insert references here
+Clapperton, A.,Tarpey, W.(June 8, 2023.). Colour Contrast Checker [Website]. https://colourcontrast.cc/ 
 
+Leniolabs. (2024). LayoutIt! [Website]. https://layoutit.com/
 
+MUI Core Team. (2014). Material-UI (Version 5.0) [Computer software]. https://mui.com/
+
+Meta Platforms, Inc. (2013). React (Version 17.0.2) [Computer software]. https://react.dev/ 
 
